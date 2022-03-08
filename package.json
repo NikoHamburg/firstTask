@@ -1,0 +1,7 @@
+{
+  "name": "com.metrological.app.fullTask",
+  "description": "fullTask",
+  "dependencies": {
+    "@lightningjs/sdk": "^4.8.1"
+  }
+}
