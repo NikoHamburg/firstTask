@@ -7,10 +7,12 @@ export default {
     {
       path: "home",
       component: Home,
+      widgets: ["Menu"],
     },
     {
       path: "details",
       component: Details,
+      widgets: ["Menu"],
     },
   ],
 };

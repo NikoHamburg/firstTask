@@ -1,5 +1,6 @@
 import { Router } from "@lightningjs/sdk";
 import routes from "./routes";
+import { Menu } from "./widgets/menu";
 
 class App extends Router.App {
   _setup() {
@@ -9,6 +10,11 @@ class App extends Router.App {
   static _template() {
     return {
       ...super._template(),
+      Widgets: {
+        Menu: {
+          type: Menu,
+        },
+      },
     };
   }
 }
