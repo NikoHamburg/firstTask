@@ -10,18 +10,15 @@ class ThumbnailItem extends Lightning.Component {
       Thumbnail: {
         w: 120,
         h: 100,
-        alpha: 0.7,
       },
       Label: {
         color: 0xfffaee66,
-        alpha: 1,
         x: -4,
         y: -20,
         text: {
-          textAlign: "center",
           shadow: true,
           shadowColor: 0xff000000,
-          fontSize: 26,
+          fontSize: 22,
         },
       },
       Description: {
@@ -30,7 +27,7 @@ class ThumbnailItem extends Lightning.Component {
         w: 120,
         text: {
           fontSize: 12,
-          textColor: 0x234798324,
+          textColor: 0xff4798324,
         },
       },
     };
@@ -40,6 +37,8 @@ class ThumbnailItem extends Lightning.Component {
     this.patch({
       Label: {
         text: {
+          w: 140,
+          textAlign: 'left',
           text: this.item.label,
         },
       },
@@ -57,7 +56,6 @@ class ThumbnailItem extends Lightning.Component {
   _focus() {
     this.patch({
       smooth: {
-        alpha: 1,
         scale: 1.2,
       },
     });
@@ -66,7 +64,6 @@ class ThumbnailItem extends Lightning.Component {
   _unfocus() {
     this.patch({
       smooth: {
-        alpha: 0.8,
         scale: 1,
       },
     });
@@ -75,6 +72,7 @@ class ThumbnailItem extends Lightning.Component {
   _handleEnter() {
     Router.navigate(`details`, this.item);
   }
+
 }
 
 export { ThumbnailItem };

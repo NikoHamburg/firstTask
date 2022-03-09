@@ -9,9 +9,8 @@ class Details extends Lightning.Component {
       color: 0xff000000,
       Label: {
         x: 50,
-        y: 0,
+        y: 100,
         color: 0xfffaee66,
-        alpha: 0.9,
         text: {
           textAlign: "center",
           fontSize: 128,
@@ -21,11 +20,11 @@ class Details extends Lightning.Component {
         w: 800,
         h: 600,
         x: 900,
-        y: 100,
+        y: 200,
       },
       Description: {
         x: 50,
-        y: 200,
+        y: 300,
         w: 800,
         text: {
           fontSize: 26,
@@ -33,11 +32,11 @@ class Details extends Lightning.Component {
       },
       AirTime: {
         x: 600,
-        y: 150,
+        y: 250,
         text: {
           fontSize: 32,
-        }
-      }
+        },
+      },
     };
   }
 
@@ -53,15 +52,21 @@ class Details extends Lightning.Component {
       },
       Description: {
         text: {
+          alpha: 0.8,
           text: item.description,
         },
       },
       AirTime: {
         text: {
+          alpha: 0.8,
           text: item.airTime,
-        }
-      }
+        },
+      },
     });
+  }
+
+  pageTransition() {
+    return "crossFade";
   }
 }
 

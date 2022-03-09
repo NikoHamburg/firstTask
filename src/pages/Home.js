@@ -1,4 +1,4 @@
-import { Lightning } from "@lightningjs/sdk";
+import { Lightning, Utils } from "@lightningjs/sdk";
 import { ThumbnailList } from "../components/ThumbnailList";
 import { testItems } from "../data/testItems";
 
@@ -14,7 +14,11 @@ class Home extends Lightning.Component {
         y: 600,
         type: ThumbnailList,
       },
-      Preview: {},
+      Preview: {
+        w: 1920,
+        h: 1080,
+        alpha: 0.3,
+      },
     };
   }
 
@@ -33,6 +37,15 @@ class Home extends Lightning.Component {
       shortDesc: item.shortDesc,
       airTime: item.airTime,
     }));
+    this._items = testItems.map((item) => ({
+      id: item.id,
+      label: item.title,
+      assetUrl: item.assetUrl,
+      description: item.description,
+      shortDesc: item.shortDesc,
+      airTime: item.airTime,
+      previewUrl: item.previewUrl,
+    }));
     this._setState("List");
   }
 
@@ -40,12 +53,20 @@ class Home extends Lightning.Component {
     return [
       class List extends this {
         _getFocused() {
-          console.log(this.tag("List").index);
-          console.log(this.tag("List"));
+          console.log(this._items[this.tag("List").index]);
+          this.patch({
+            Preview: {
+              src: Utils.asset(this._items[this.tag("List").index].previewUrl),
+            },
+          });
           return this.tag("List");
         }
       },
     ];
+  }
+
+  pageTransition() {
+    return "crossFade";
   }
 }
 
