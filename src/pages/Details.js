@@ -7,6 +7,18 @@ class Details extends Lightning.Component {
       w: 1920,
       h: 1080,
       color: 0xff000000,
+      Arrows: {
+        Down: {
+          Arrow: {
+            alpha: 0.5,
+            flexItem: { marginTop: 20, marginBottom: 20 },
+            scale: 0.5,
+            mountX: -9.5,
+            rotation: 3.1,
+            src: Utils.asset("images/arrow.png"),
+          },
+        },
+      },
       Label: {
         x: 50,
         y: 100,
